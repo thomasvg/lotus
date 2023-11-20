@@ -70,11 +70,11 @@ function displayCalendar(month, year) {
     if (month == 1 && isLeapYear(year)) {
         numOfDays++;
     }
-
     for (var i = 1; i <= numOfDays; i++) {
         let dayClass = "";
         let date = new Date(year, month, i);
         let agendaTitle = "";
+        let hasDisplayedTitle = false; // Reset `hasDisplayedTitle` for each date
 
         // Check if it's a weekend
         if (date.getDay() === 6 || date.getDay() === 0) {
@@ -82,17 +82,18 @@ function displayCalendar(month, year) {
         }
 
         // Check if the date is between 'datefrom' and 'dateto' from the agendas
+        // and track if the title has already been displayed for the date range
         let foundAgenda = agendas.find((agenda) => {
             if (
-                new Date(agenda.datefrom).toDateString() === date.toDateString()
+                new Date(agenda.datefrom).toDateString() ===
+                    date.toDateString() ||
+                (date >= new Date(agenda.datefrom) &&
+                    date <= new Date(agenda.dateto))
             ) {
-                agendaTitle = agenda.title;
-                return true;
-            } else if (
-                date >= new Date(agenda.datefrom) &&
-                date <= new Date(agenda.dateto)
-            ) {
-                agendaTitle = agenda.title;
+                if (!hasDisplayedTitle) {
+                    agendaTitle = agenda.title;
+                    hasDisplayedTitle = true;
+                }
                 return true;
             }
             return false;
@@ -107,7 +108,7 @@ function displayCalendar(month, year) {
             daysElement.innerHTML +=
                 "<li class='" +
                 dayClass +
-                "' style='position: relative;'><span style='position: absolute; bottom: 0px; padding-bottom: 1rem;;'>" +
+                "' style='position: relative;'><span style='position: absolute; bottom: 0px; padding-bottom: 5px; left: 0px; width: 100%;'>" +
                 agendaTitle +
                 "</span>" +
                 i +
