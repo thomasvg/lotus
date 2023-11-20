@@ -1,0 +1,28 @@
+.admin-panel {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .admin-blog {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 1rem;
+        background-color: rgb(228, 222, 222);
+        justify-content: center;
+
+        width: 50%;
+        height: 50%;
+
+        .blog {
+            display: flex;
+            flex-direction: column;
+            margin: 1rem;
+
+            width: 50%;
+        }
+    }
+}
