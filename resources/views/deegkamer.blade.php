@@ -1,6 +1,6 @@
 <x-base>
 
-    <x-registerform />
+    <x-registerform :deegsoorten="$deegsoorten" />
 
 
 </x-base>

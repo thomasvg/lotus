@@ -26,6 +26,15 @@
         </div>
 
 
+        <div class="inProductie">
+            <select name="deegsoort" id="deegsoort">
+                @foreach ($deegsoorten as $deegsoort)
+                    <option value="{{ $deegsoort->id }}">{{ $deegsoort->deegsoort }}</option>
+                @endforeach
+            </select>
+        </div>
+
+
 
 
     </div>

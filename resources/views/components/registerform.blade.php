@@ -11,14 +11,13 @@
         @endif
 
         <div class="deegformpart">
-
+            <label for="place">Plaats:</label>
             <select id="place" name="place">
                 <option value="y">y</option>
                 <option value="z">z</option>
-
             </select>
 
-
+            <label for="placenumber">Plaatsnummer:</label>
             <select id="placenumber" name="placenumber">
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -39,8 +38,6 @@
                 <option value="17">17</option>
                 <option value="18">18</option>
             </select>
-
-
         </div>
 
 
@@ -67,6 +64,16 @@
 
 
         </div>
+
+        <label for="deegsoort">Deegsoort:</label>
+        <select name="deegsoort" id="deegsoort">
+            <option value="" {{ old('deegsoort') == '' ? 'selected' : '' }}>Please select</option>
+            @foreach ($deegsoorten as $deegsoort)
+                <option value="{{ $deegsoort->id }}"
+                    {{ session('selectedDeegsoort') == $deegsoort->id ? 'selected' : '' }}>{{ $deegsoort->deegsoort }}
+                </option>
+            @endforeach
+        </select>
 
 
 
