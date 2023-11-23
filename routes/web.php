@@ -4,6 +4,7 @@
 use App\Models\Post;
 use App\Models\Agenda;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DeegController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
@@ -21,28 +22,18 @@ use App\Http\Controllers\AgendaController;
 |
 */
 
-Route::get('/', function () {
 
-    if(auth()->check()){
-        $posts = Post::all();
-        $agendas = Agenda::all();
-        return view('login', ['posts' => $posts, 'agendas' => $agendas]);
-      
-
-    }else{
-        return view('welcome');
-    }
-  
-});
 Route::get('/register', function () {
     return view('register');
 });
 
 
-Route::post('/', [LoginController::class,'showCorrectHomePage']);
+Route::get('/', [LoginController::class,'showCorrectHomePage'])->name('login');
+
 Route::post('/login', [LoginController::class,'login']);
 Route::get('/login', [LoginController::class,'checklogin']);
 Route::post('/logout', [LoginController::class,'logoutUser']);
+Route::get('/logout', [LoginController::class,'logoutUser']);
 
 
 
@@ -51,6 +42,13 @@ Route::post('/register', [UserController::class,'store']);
 Route::post('/create-post', [PostController::class,'store']);
 Route::post('/agenda', [PostController::class,'storeAgenda']);
 Route::get('/agenda', [PostController::class, 'indexAgenda']);
+
+//deegkamer deeg registratie
+Route::get('/deegkamer', [DeegController::class,'deegkamer']);
+Route::post('/deegkamer', [DeegController::class,'deegregistreer']);
+
+
+
 
 
 

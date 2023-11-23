@@ -179,16 +179,15 @@ $primary-color: rgba(173, 50, 60, 0.95);
             align-items: center;
             overflow: scroll;
 
+            #kalender {
+                height: 100vh;
+            }
+
             @media (max-width: 525px) {
                 flex-direction: column;
-                .news {
-                    width: 100%;
 
-                    margin: 0;
-
-                    &:first-child {
-                        margin-top: 16rem;
-                    }
+                #kalender {
+                    height: 100vh;
                 }
             }
 
@@ -307,10 +306,10 @@ $primary-color: rgba(173, 50, 60, 0.95);
                 }
 
                 .days {
-                    postion: relative;
                     .green-day {
-                        background-color: aqua !important;
-                        color: palevioletred;
+                        background-color: yellow !important;
+                        overflow-wrap: break-word;
+                        color: $primary-color;
                     }
 
                     padding: 10px 0;
@@ -376,28 +375,6 @@ $primary-color: rgba(173, 50, 60, 0.95);
                     .weekdays li,
                     .days li {
                         width: 14%;
-                    }
-                }
-
-                @media screen and (max-width: 420px) {
-                    .weekdays li {
-                        width: 1%;
-                    }
-
-                    .days li {
-                        width: 12.5%;
-                        height: 50px;
-
-                        .active {
-                            padding: 2px;
-                        }
-                    }
-                }
-
-                @media screen and (max-width: 290px) {
-                    .weekdays li,
-                    .days li {
-                        width: 12.2%;
                     }
                 }
             }

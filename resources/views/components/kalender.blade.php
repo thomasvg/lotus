@@ -1,4 +1,4 @@
-<div class="news">
+<div class="news" id="kalender">
     <div class="title">
         <div class='title-icon-fa'><i class="fa-solid fa-calendar-days "></i></div>
         <div class="title">

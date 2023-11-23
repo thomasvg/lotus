@@ -1,8 +1,10 @@
 @vite(['resources/sass/login.scss', 'resources/js/app.js'])
 @vite(['resources/sass/admin.scss', 'resources/js/app.js'])
+@vite(['resources/sass/deegkamer.scss', 'resources/js/app.js'])
 @vite(['resources/js/custom.js', 'resources/js/app.js'])
 @vite(['resources/js/kalender.js'])
 @vite(['resources/js/sidebar.js'])
+@vite(['resources/js/deegkamer.js'])
 
 
 <!DOCTYPE html>
@@ -42,11 +44,15 @@
                     <div class="f-icon"><i class="fa-solid fa-calendar-days "></i></div>
                     <h3>kalender</h3>
                 </li>
-                <li>
-                    <div class="hover-focus"></div>
-                    <div class="f-icon"><i class="fa-solid fa-check "></i></div>
-                    <h3>Pbm's</h3>
-                </li>
+
+                <a href="/deegkamer">
+                    <li>
+
+                        <div class="hover-focus"></div>
+                        <div class="f-icon"><i class="fa-solid fa-check "></i></div>
+                        <h3>deegkamer</h3>
+                    </li>
+                </a>
                 <li>
                     <div class="hover-focus"></div>
                     <div class="f-icon"><i class="fa-solid fa-user "></i></div>
@@ -109,7 +115,6 @@
 
 
     </div>
-
 
 
 

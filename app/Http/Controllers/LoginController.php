@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use App\Models\User;
+use App\Models\Agenda;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -21,9 +22,9 @@ public function checklogin(){
 
     if(auth()->check()){
         
-        $posts = DB::table('posts')->select('title', 'content','created_at')->get();
-        return view('login')->with('posts', $posts);
-
+        $agendas= Agenda::all();
+        $posts = Post::all();
+    return view('login', ['posts' => $posts,'agendas' => $agendas]);
     }else{
 
         return view('welcome');
@@ -35,9 +36,9 @@ public function checklogin(){
 public function showCorrectHomePage(){
 
     if(auth()->check()){
-
+        $agendas= Agenda::all();
         $posts = Post::all();
-    return view('login', ['posts' => $posts]);
+    return view('login', ['posts' => $posts,'agendas' => $agendas]);
        
 
 
@@ -63,8 +64,9 @@ public function showCorrectHomePage(){
 
     if (auth()->attempt(['username' => $incomingFields['username'], 'password' => $incomingFields['password']])) {
         $request->session()->regenerate();
+        $agendas= Agenda::all();
         $posts = Post::all();
-    return view('login', ['posts' => $posts]);
+    return view('login', ['posts' => $posts,'agendas' => $agendas]);
     } else {
         return view('welcome');
     }

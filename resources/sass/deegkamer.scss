@@ -1,0 +1,23 @@
+$panel-color: #2c2f3a;
+$panel-text-color: rgb(228, 222, 222);
+$news-text-color: rgb(228, 222, 222);
+$border-panel-color: #202127;
+$primary-color: rgba(173, 50, 60, 0.95);
+
+.deegkamer {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+
+    .message {
+        background-color: $primary-color;
+        color: white;
+        text-align: center;
+    }
+    .deegformpart {
+        display: flex;
+    }
+}

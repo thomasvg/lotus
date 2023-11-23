@@ -11,7 +11,7 @@
             </form>
         </div>
         <div class="admin-blog">
-            <h1>Nieuw bericht</h1>
+            <h1>Nieuw Kalender bericht</h1>
 
 
             <form action="/agenda" method="POST" class="blog">
