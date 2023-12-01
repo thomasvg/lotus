@@ -43,6 +43,10 @@ $primary-color: rgba(173, 50, 60, 0.95);
 }
 .deeginsteek {
     display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: space-around;
     background-color: #aaa;
     padding: 1rem;
 }
@@ -69,4 +73,15 @@ $primary-color: rgba(173, 50, 60, 0.95);
     display: block;
     background-color: #fefefe;
     padding: 1rem;
+}
+
+.linkedlines {
+    background-color: aqua;
+    display: flex;
+
+    .individualLinkedLines {
+        margin: 1rem;
+        background-color: aquamarine;
+        padding: 1rem;
+    }
 }

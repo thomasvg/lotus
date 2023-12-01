@@ -30,10 +30,18 @@
 
             </select>
 
-            <input type="submit" class="linklinebtn" id="linklinebtn" value="Update">
+            <input type="submit" name="action" class="linklinebtn" id="linklinebtn" value="Update">
+            <input type="submit" name="action" value="unlink">
         </form>
 
-
+        <div class="linkedlines">
+            @foreach ($lines as $line)
+                @if ($line->linked)
+                    <div class="individualLinkedLines">{{ $line->line }}</div>
+                @else
+                @endif
+            @endforeach
+        </div>
 
 
     </div>

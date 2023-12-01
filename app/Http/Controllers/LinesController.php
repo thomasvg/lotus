@@ -36,29 +36,43 @@ class LinesController extends Controller
     }
     public function linkLine(Request $request)
     {
-        $selectedOption = $request->input('placedegen');
-        $lineId = $request->input('line'); // replace 'line' with your actual input name
 
+        if ($request->action == 'unlink') {
+            // Find the line by its id
+            $line = Line::where('line', $request->input('line'))->first();
         
-    
-        // Split the selected option into place and placenumber
-        list($place, $placenumber) = explode(' ', $selectedOption);
-
-        $lineId = $request->input('line'); // Retrieve the selected line code
-
+            // Set the linked field to 0
+            $line->linked = 0;
         
-        // Find the line by its id
-        $line = Line::where('line',$lineId )->first();
-    
-        // Update the placeline, placenumberline, and linked fields
-        $line->placeline = $place;
-        $line->placenumberline = $placenumber;
-        $line->linked = !empty($place) && !empty($placenumber);
-    
-        // Save the line
-        $line->save();
+            // Save the line
+            $line->save();
+        
+            return back()->with("success","Unlinked successfully");
+        } else {
+            $selectedOption = $request->input('placedegen');
+            $lineId = $request->input('line'); // replace 'line' with your actual input name
+        
+            // Split the selected option into place and placenumber
+            list($place, $placenumber) = explode(' ', $selectedOption);
+        
+            $lineId = $request->input('line'); // Retrieve the selected line code
+        
+            // Find the line by its id
+            $line = Line::where('line',$lineId )->first();
+        
+            // Update the placeline, placenumberline, and linked fields
+            $line->placeline = $place;
+            $line->placenumberline = $placenumber;
+            $line->linked = !empty($place) && !empty($placenumber);
+        
+            // Save the line
+            $line->save();
+        
+            return back()->with("success","Updated successfully");
+        }
+        
 
-        return back()->with("succesfully","succes");
+       
     }
     
 
