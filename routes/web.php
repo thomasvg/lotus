@@ -8,6 +8,7 @@ use App\Http\Controllers\DeegController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\LinesController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\AgendaController;
 
@@ -46,6 +47,23 @@ Route::get('/agenda', [PostController::class, 'indexAgenda']);
 //deegkamer deeg registratie
 Route::get('/deegkamer', [DeegController::class,'deegkamer']);
 Route::post('/deegkamer', [DeegController::class,'deegregistreer']);
+
+Route::get('/deeginsteek', [DeegController::class,'deeginsteek']);
+
+Route::get('/{place}:place/{placenumber}:placenumber',[ DeegController::class,'getDeegData']);
+
+
+
+//admin controller
+Route::get('/admin', [DeegController::class,'deegkamer']);
+Route::post('/admin', [DeegController::class,'deegregistreer']);
+Route::put('/activateLine', [LinesController::class,'activationLine']);
+Route::put('/deactivateLine', [LinesController::class,'deactivationLine']);
+
+
+//deeginsteek
+
+Route::put('/linkLine', [LinesController::class,'linkLine']);
 
 
 

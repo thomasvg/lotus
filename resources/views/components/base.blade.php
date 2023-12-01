@@ -1,10 +1,13 @@
 @vite(['resources/sass/login.scss', 'resources/js/app.js'])
 @vite(['resources/sass/admin.scss', 'resources/js/app.js'])
 @vite(['resources/sass/deegkamer.scss', 'resources/js/app.js'])
+@vite(['resources/sass/deeginsteek.scss', 'resources/js/app.js'])
 @vite(['resources/js/custom.js', 'resources/js/app.js'])
 @vite(['resources/js/kalender.js'])
 @vite(['resources/js/sidebar.js'])
-@vite(['resources/js/deegkamer.js'])
+@vite(['resources/js/admin.js'])
+@vite(['resources/js/deeginsteek.js'])
+
 
 
 <!DOCTYPE html>
@@ -18,6 +21,8 @@
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" type="text/css" href="styles.css?v=1.1">
+
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300&family=Sigmar&display=swap" rel="stylesheet">
     <title>Document</title>
 </head>
@@ -51,6 +56,14 @@
                         <div class="hover-focus"></div>
                         <div class="f-icon"><i class="fa-solid fa-check "></i></div>
                         <h3>deegkamer</h3>
+                    </li>
+                </a>
+                <a href="/deeginsteek">
+                    <li>
+
+                        <div class="hover-focus"></div>
+                        <div class="f-icon"><i class="fa-solid fa-check "></i></div>
+                        <h3>deeginsteek</h3>
                     </li>
                 </a>
                 <li>

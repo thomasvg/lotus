@@ -1,0 +1,35 @@
+{
+  "hash": "8d00c94f",
+  "browserHash": "0651a6e2",
+  "optimized": {
+    "@fortawesome/fontawesome-free/js/fontawesome": {
+      "src": "../../node_modules/@fortawesome/fontawesome-free/js/fontawesome.js",
+      "file": "@fortawesome_fontawesome-free_js_fontawesome.js",
+      "fileHash": "08f875df",
+      "needsInterop": true
+    },
+    "@fortawesome/fontawesome-free/js/solid": {
+      "src": "../../node_modules/@fortawesome/fontawesome-free/js/solid.js",
+      "file": "@fortawesome_fontawesome-free_js_solid.js",
+      "fileHash": "3eafe774",
+      "needsInterop": true
+    },
+    "lodash": {
+      "src": "../../node_modules/lodash/lodash.js",
+      "file": "lodash.js",
+      "fileHash": "b659afa2",
+      "needsInterop": true
+    },
+    "axios": {
+      "src": "../../node_modules/axios/index.js",
+      "file": "axios.js",
+      "fileHash": "b563f946",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "chunk-6TJCVOLN": {
+      "file": "chunk-6TJCVOLN.js"
+    }
+  }
+}

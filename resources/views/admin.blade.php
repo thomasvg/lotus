@@ -1,4 +1,4 @@
-d<x-base>
+<x-base>
     <div class="admin-panel">
 
         <div class="admin-row-1">
@@ -35,12 +35,29 @@ d<x-base>
             <div class="inProductie">
                 @foreach ($lines as $line)
                     @if ($line->is_producing)
-                        <div class="line-active">{{ $line->line }}</div>
+                        <form class="activation" action='/activateLine' method="POST">
+                            @csrf
+                            @method('PUT')
+                            <input type="hidden" name="activeline" value="{{ $line->id }}">
+                            <input type="submit" class="line-active" value="{{ $line->line }}">
+
+                        </form>
                     @else
-                        <div class="line-deactive">{{ $line->line }}</div>
+                        <form class="activation"action='/deactivateLine' method="POST">
+                            @csrf
+                            @method('PUT')
+                            <input type="hidden" name="deactiveline" value="{{ $line->id }}">
+                            <input type="submit" class="line-deactive" value="{{ $line->line }}">
+                        </form>
                     @endif
                 @endforeach
+
+
             </div>
+
+
+
+
 
 
         </div>
