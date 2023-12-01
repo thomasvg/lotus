@@ -64,6 +64,7 @@ Route::put('/deactivateLine', [LinesController::class,'deactivationLine']);
 //deeginsteek
 
 Route::put('/linkLine', [LinesController::class,'linkLine']);
+Route::get('/findBakken', [LinesController::class,'findBakken']);
 
 
 

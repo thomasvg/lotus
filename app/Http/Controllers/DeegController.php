@@ -25,8 +25,8 @@ class DeegController extends Controller
     {
         $lines = Line::where('is_producing', 1)->get();
     
-        $fromDate = Carbon::now()->subDays(10);
-        $toDate = Carbon::now()->subMinutes(5);
+        $fromDate = Carbon::now()->subDays(1);
+        $toDate = Carbon::now()->subMinutes(1);
         $geregistreerdeDegen = Deegregistreer::whereBetween('created_at', [$fromDate, $toDate])->get();
     
         return view('/deeginsteek', ['lines' => $lines, 'geregistreerdeDegen' => $geregistreerdeDegen]);

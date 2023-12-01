@@ -3,8 +3,12 @@
 namespace App\Http\Controllers;
 
 
+use Carbon\Carbon;
 use App\Models\Line;
 use Illuminate\Http\Request;
+use App\Models\Deegregistreer;
+use Illuminate\Support\Facades\DB;
+
 
 
 class LinesController extends Controller
@@ -76,7 +80,27 @@ class LinesController extends Controller
     }
     
 
+    public function findBakken(Request $request)
+{
+    $line = $request->input('individualbtn');
 
+    $results = DB::table('deegregistreer')
+                ->join('lines', function ($join) use ($line) {
+                    $join->on('deegregistreer.place', '=', 'lines.placeline')
+                         ->on('deegregistreer.placenumber', '=', 'lines.placenumberline')
+                         ->where('lines.line', '=', $line);
+                })
+                ->select('deegregistreer.bak')
+                ->get();
+                $fromDate = Carbon::now()->subDays(1);
+                $toDate = Carbon::now()->subMinutes(1);
+     $geregistreerdeDegen = Deegregistreer::whereBetween('created_at', [$fromDate, $toDate])->get();
+    $lines = Line::all(); // or however you retrieve your lines
+
+    return view('deeginsteek', ['results' => $results, 'lines' => $lines, 'geregistreerdeDegen' => $geregistreerdeDegen]);
+}
+
+    
 
 
 }

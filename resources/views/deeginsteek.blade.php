@@ -34,16 +34,24 @@
             <input type="submit" name="action" value="unlink">
         </form>
 
-        <div class="linkedlines">
-            @foreach ($lines as $line)
-                @if ($line->linked)
-                    <div class="individualLinkedLines">{{ $line->line }}</div>
-                @else
-                @endif
-            @endforeach
+        <form action="/findBakken" method="GET">
+            <div class="linkedlines">
+                @foreach ($lines as $line)
+                    @if ($line->linked)
+                        <button type="submit" class="individualLinkedLines" name="individualbtn"
+                            value="{{ $line->line }}">{{ $line->line }}</button>
+                    @endif
+                @endforeach
+            </div>
+        </form>
+
+        <div class="showBakken">
+            @if (isset($results))
+                @foreach ($results as $result)
+                    <p>{{ $result->bak }}</p>
+                @endforeach
+            @endif
         </div>
-
-
     </div>
 
 
