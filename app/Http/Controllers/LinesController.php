@@ -34,6 +34,7 @@ class LinesController extends Controller
         // Assuming 'id' is the primary key in your Lines model
         $line = Line::find($lineId);
         $line->is_producing = 0;
+        $line->linked = 0; // Set linked to 0
         $line->save();
 
         return back();
@@ -84,6 +85,8 @@ class LinesController extends Controller
 {
     $line = $request->input('individualbtn');
 
+    
+
     $results = DB::table('deegregistreer')
                 ->join('lines', function ($join) use ($line) {
                     $join->on('deegregistreer.place', '=', 'lines.placeline')
@@ -92,12 +95,12 @@ class LinesController extends Controller
                 })
                 ->select('deegregistreer.bak')
                 ->get();
-                $fromDate = Carbon::now()->subDays(1);
+                $fromDate = Carbon::now()->subDays(30);
                 $toDate = Carbon::now()->subMinutes(1);
      $geregistreerdeDegen = Deegregistreer::whereBetween('created_at', [$fromDate, $toDate])->get();
     $lines = Line::all(); // or however you retrieve your lines
 
-    return view('deeginsteek', ['results' => $results, 'lines' => $lines, 'geregistreerdeDegen' => $geregistreerdeDegen]);
+    return view('deeginsteek', ['results' => $results,'individualLine'=>$line, 'lines' => $lines, 'geregistreerdeDegen' => $geregistreerdeDegen]);
 }
 
     

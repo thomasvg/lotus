@@ -67,6 +67,9 @@ Route::put('/linkLine', [LinesController::class,'linkLine']);
 Route::get('/findBakken', [LinesController::class,'findBakken']);
 
 
+//boeken
+
+Route::post('/book', [DeegController::class,'book']);
 
 
 

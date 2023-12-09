@@ -8,7 +8,7 @@ $primary-color: rgba(173, 50, 60, 0.95);
     color: white;
 }
 
-.modal {
+.mdl {
     display: none;
     position: fixed;
     z-index: 1;
@@ -18,14 +18,14 @@ $primary-color: rgba(173, 50, 60, 0.95);
     height: 100%;
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.4);
-}
 
-.modal-content {
-    background-color: #fefefe;
-    margin: 15% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 40%;
+    .mdl-content {
+        background-color: #fefefe;
+        margin: 15% auto; /* 15% from the top and centered */
+        padding: 20px;
+        border: 1px solid #888;
+        width: 20%; /* Could be more or less, depending on screen size */
+    }
 }
 
 .close {
@@ -85,4 +85,15 @@ $primary-color: rgba(173, 50, 60, 0.95);
         padding: 1rem;
         cursor: pointer;
     }
+}
+
+.individualBak {
+    border: 1px solid black;
+    width: 100%;
+    height: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem;
+    cursor: pointer;
 }
