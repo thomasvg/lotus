@@ -49,6 +49,11 @@ $primary-color: rgba(173, 50, 60, 0.95);
     justify-content: space-around;
     background-color: #aaa;
     padding: 1rem;
+
+    .forms {
+        display: flex;
+        flex-direction: column;
+    }
 }
 
 .place-container {
@@ -76,12 +81,12 @@ $primary-color: rgba(173, 50, 60, 0.95);
 }
 
 .linkedlines {
-    background-color: aqua;
     display: flex;
 
     .individualLinkedLines {
         margin: 1rem;
-        background-color: aquamarine;
+        background-color: $primary-color;
+        color: white;
         padding: 1rem;
         cursor: pointer;
     }

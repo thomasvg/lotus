@@ -1,50 +1,50 @@
 <x-base>
     <div class="deeginsteek">
 
+        <div class="forms">
 
-
-        <form action="/linkLine" method="POST">
-            @csrf
-            @method('PUT')
-
-
-
-            <select name="line" id="line">
-                @foreach ($lines as $line)
-                    @if ($line->linked && $line->is_producing)
-                        <option value="{{ $line->line }} ">{{ $line->line }} linked and producing</option>
-                    @elseif (!$line->linked && $line->is_producing)
-                        <option value="{{ $line->line }} ">{{ $line->line }} not linked but producing</option>
-                    @endif
-                @endforeach
-            </select>
+            <form action="/linkLine" method="POST">
+                @csrf
+                @method('PUT')
 
 
 
-            <select name="placedegen" id="placedegen">
-                @foreach ($geregistreerdeDegen as $deeg)
-                    <option value="{{ $deeg->place }} {{ $deeg->placenumber }}">{{ $deeg->place }}
-                        {{ $deeg->placenumber }}</option>
-                @endforeach
-
-            </select>
-
-            <input type="submit" name="action" class="linklinebtn" id="linklinebtn" value="Update">
-            <input type="submit" name="action" value="unlink">
-        </form>
-
-        <form action="/findBakken" method="GET">
-            <div class="linkedlines">
-                @foreach ($lines as $line)
-                    @if ($line->linked)
-                        <button type="submit" class="individualLinkedLines" name="individualbtn"
-                            value="{{ $line->line }}">{{ $line->line }}</button>
-                    @endif
-                @endforeach
-            </div>
-        </form>
+                <select name="line" id="line">
+                    @foreach ($lines as $line)
+                        @if ($line->linked && $line->is_producing)
+                            <option value="{{ $line->line }} ">{{ $line->line }} linked and producing</option>
+                        @elseif (!$line->linked && $line->is_producing)
+                            <option value="{{ $line->line }} ">{{ $line->line }} not linked but producing</option>
+                        @endif
+                    @endforeach
+                </select>
 
 
+
+                <select name="placedegen" id="placedegen">
+                    @foreach ($geregistreerdeDegen as $deeg)
+                        <option value="{{ $deeg->place }} {{ $deeg->placenumber }}">{{ $deeg->place }}
+                            {{ $deeg->placenumber }}</option>
+                    @endforeach
+
+                </select>
+
+                <input type="submit" name="action" class="linklinebtn" id="linklinebtn" value="Link">
+                <input type="submit" name="action" value="unlink">
+            </form>
+
+            <form action="/findBakken" method="GET">
+                <div class="linkedlines">
+                    @foreach ($lines as $line)
+                        @if ($line->linked)
+                            <button type="submit" class="individualLinkedLines" name="individualbtn"
+                                value="{{ $line->line }}">{{ $line->line }}</button>
+                        @endif
+                    @endforeach
+                </div>
+            </form>
+
+        </div>
         <!-- Your bak elements -->
         <div class="showBakken">
             @if (isset($results))
@@ -78,7 +78,7 @@
         </div>
 
         @if (Session::has('success'))
-            <h1>{{ Session::get('success') }}</h1>
+            <p>{{ Session::get('success') }}</p>
         @endif
 
 

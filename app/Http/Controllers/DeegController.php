@@ -84,7 +84,7 @@ class DeegController extends Controller
         // Delete the row from the 'deegregistreer' table
         DB::table('deegregistreer')->where('bak', $number)->delete();
 
-        return back()->with('success','you successfully booked');
+        return back()->with('success','succes');
     }
 
     

@@ -52,7 +52,7 @@ class LinesController extends Controller
             // Save the line
             $line->save();
         
-            return back()->with("success","Unlinked successfully");
+            return back()->with("success","Unlinked");
         } else {
             $selectedOption = $request->input('placedegen');
             $lineId = $request->input('line'); // replace 'line' with your actual input name
